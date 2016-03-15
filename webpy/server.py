@@ -20,6 +20,9 @@ class Application:
         #self.holeParser = HoleParser(CSV_PATH) TODO
         self.webHandler = WebHandler()
 
+    """
+    Called on start of application
+    """
     def start(self):
         #self.holeParser.parse() TODO
         self.webHandler.start()

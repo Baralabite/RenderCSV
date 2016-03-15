@@ -4,6 +4,10 @@ from model.holeparser import HoleParser
 from config import CSV_PATH
 
 class index:
+    """
+    Handles HTTP GET requests
+    Returns HTML
+    """
     def GET(self):
         self.holeParser = HoleParser(CSV_PATH)
         self.holeParser.parse()

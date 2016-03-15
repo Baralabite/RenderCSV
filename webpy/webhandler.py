@@ -18,5 +18,9 @@ class WebHandler:
         self.app = web.application(urls, globals())
         web.config.debug = False
 
+    """
+    Called on start of application.
+    Takes control of the thread.
+    """
     def start(self):
         self.app.run()
