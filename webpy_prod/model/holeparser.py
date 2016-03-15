@@ -82,12 +82,15 @@ class HoleParser:
     Gets the distance between the "southmost" and "northmost" holes
     """
     def getEastingDifference(self):
+        print(self.getMaxEasting().easting)
         return abs(self.getMaxEasting().easting-self.getMinEasting().easting)
+
 
     """
     Gets the distance between the "southmost" and "northmost" holes
     """
     def getNorthingDifference(self):
+        print(self.getMaxNorthing().northing)
         return abs(self.getMaxNorthing().northing-self.getMinNorthing().northing)
 
     """

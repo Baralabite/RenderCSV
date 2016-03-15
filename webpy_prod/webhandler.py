@@ -10,7 +10,7 @@ from pages.index import index
 Defines url data structure
 """
 urls = (
-    '/', 'index'
+    '/(.*)', 'index'
 )
 
 class WebHandler:
