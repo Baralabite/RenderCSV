@@ -96,8 +96,18 @@ class HoleParser:
     def getElevationDifference(self):
         return abs(self.getMaxElevation().elevation-self.getMinElevation().elevation)
 
+    """
+    Returns a list with the structure of:
+    [(x, y, z), (x, y, z), ...]
+    Based on self.holes
+    """
     def getPointCloud(self, scale=1):
         return [(self.holes[point].easting*scale, self.holes[point].northing*scale, self.holes[point].elevation*scale) for point in self.holes]
 
+    """
+    Normalizes (or sets the lowest position to 0,0,0) each hole position.
+    Useful for rendering online. Maintains scale and position of holes relative to each other,
+    but renders close to origin
+    """
     def normalizePointCloud(self, normalizeEasting, normalizeNorthing, normalizeElevation, scale=1):
         return [((point[0]-normalizeEasting)*scale, (point[1]-normalizeNorthing)*scale, (point[2]-normalizeElevation)*scale) for point in self.getPointCloud()]

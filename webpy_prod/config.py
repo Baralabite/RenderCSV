@@ -1,1 +1,0 @@
-CSV_PATH = "data/holes.csv"

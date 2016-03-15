@@ -8,9 +8,13 @@ class index:
         self.holeParser = HoleParser(CSV_PATH)
         self.holeParser.parse()
         render = template.render('pages/')
+
+        #TODO Make the rendering scaling not based on changing the actual raw data
         scale = 10
 
-        return render.index(self.holeParser.getEastingDifference()*scale, self.holeParser.getNorthingDifference()*scale,
-                            self.holeParser.normalizePointCloud(self.holeParser.getMinEasting().easting, self.holeParser.getMinNorthing().northing, 0, scale=10,),
-                            40)
-        #return "Hello World!"
+        canvasWidth = self.holeParser.getEastingDifference()*scale
+        canvasHeight = self.holeParser.getNorthingDifference()*scale
+        normalizedPointCloud = self.holeParser.normalizePointCloud(self.holeParser.getMinEasting().easting, self.holeParser.getMinNorthing().northing, 0, scale=10)
+        borderSize = 40
+
+        return render.index(canvasWidth, canvasHeight, normalizedPointCloud, borderSize)
